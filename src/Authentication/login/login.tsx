@@ -2,15 +2,31 @@ import React from "react";
 import { Container, Row, Col, Form, FloatingLabel } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./login.css";
+import  axios from "axios";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 function Login (){
 	const navigate = useNavigate();
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate('/agentInterface');
-  };
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    try {
+      const response = await axios.post("http://localhost:3000/auth/login", {
+        email,
+        password,
+      });
+      console.log("Login successful:", response.data);
+      // 
+      navigate("/agentInterface");
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
+    }
+  }
 
 	return (
     <Container fluid
