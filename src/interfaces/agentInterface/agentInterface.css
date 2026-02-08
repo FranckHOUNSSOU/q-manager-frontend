@@ -1,0 +1,29 @@
+.agent-interface {
+  min-height: 100vh;
+  display: flex;
+  background: #f9fafb;
+}
+
+.agent-main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+}
+
+.agent-sidebar.collapsed ~ .agent-main {
+  margin-left: 72px;
+}
+
+.agent-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #fff;
+  margin: 0 1rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
