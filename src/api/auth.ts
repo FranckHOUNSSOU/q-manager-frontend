@@ -42,9 +42,19 @@ export function saveTokens(accessToken: string, refreshToken: string) {
   localStorage.setItem("refresh_token", refreshToken);
 }
 
+export function saveUser(user: LoginResponse["user"]) {
+  localStorage.setItem("user", JSON.stringify(user));
+}
+
+export function getUser(): LoginResponse["user"] | null {
+  const userStr = localStorage.getItem("user");
+  return userStr ? JSON.parse(userStr) : null;
+}
+
 export function clearTokens() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
+  localStorage.removeItem("user");
 }
 
 export function getAccessToken(): string | null {

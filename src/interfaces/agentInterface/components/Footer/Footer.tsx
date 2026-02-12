@@ -4,14 +4,14 @@ function Footer() {
   return (
     <footer className="agent-footer">
       <div className="footer-left">
-        <a href="/" className="footer-link">Q-MANAGER v1.0.0</a>
+        <span>Q-MANAGER v1.0.0</span>
       </div>
-      <div className="footer-center">
+      {/*<div className="footer-center">
         <a href="/" className="footer-link">En savoir plus</a>
         <a href="/" className="footer-link">Plus de produits</a>
-      </div>
+      </div>*/}
       <div className="footer-right">
-        <span className="footer-product">Product of Francky</span>
+        <span className="footer-product">Product of ...</span>
       </div>
     </footer>
   );

@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { register as apiRegister, saveTokens } from "../../api/auth";
+import { register as apiRegister, saveTokens, saveUser } from "../../api/auth";
 import { AxiosError } from "axios";
 
 function SignUp() {
@@ -50,6 +50,7 @@ function SignUp() {
         password,
       });
       saveTokens(response.access_token, response.refresh_token);
+      saveUser(response.user);
       setMessage({ text: "Inscription réussie. Redirection...", type: "success" });
       navigate("/agentInterface");
     } catch (err) {
