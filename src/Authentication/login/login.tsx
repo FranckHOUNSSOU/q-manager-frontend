@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, FloatingLabel, Button } from "react-bootstra
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import { login as apiLogin, saveTokens } from "../../api/auth";
+import { login as apiLogin, saveTokens, saveUser } from "../../api/auth";
 import { AxiosError } from "axios";
 
 function Login() {
@@ -26,6 +26,7 @@ function Login() {
     try {
       const response = await apiLogin(email, password);
       saveTokens(response.access_token, response.refresh_token);
+      saveUser(response.user);
       setMessage({ text: "Connexion réussie. Redirection...", type: "success" });
       navigate("/agentInterface");
     } catch (err) {
