@@ -1,18 +1,270 @@
-.ticket-interface {
-  background: linear-gradient(180deg, #1b4332 0%, #2d6a4f 100%);
-  color: #d8f3dc;
+/* ─── Page wrapper ────────────────────────────────────────────────────────── */
+.ti-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0d1f0f 0%, #1a3a1e 50%, #0d1f0f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-.ticket-interface .back-link {
-  color: #95d5b2;
-  text-decoration: none;
+/* ─── Bouton retour ───────────────────────────────────────────────────────── */
+.ti-back {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  transition: color 0.2s;
+  align-self: flex-start;
+  margin-left: calc(50% - 280px);
+}
+.ti-back:hover { color: rgba(255, 255, 255, 0.8); }
+
+/* ─── Carte formulaire ────────────────────────────────────────────────────── */
+.ti-card {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
-.ticket-interface .back-link:hover {
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+.ti-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+  margin-bottom: 0.75rem;
+}
+
+.ti-title {
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #fff;
+  margin: 0 0 4px;
 }
 
-.ticket-interface h1 {
-  font-size: 2rem;
+.ti-subtitle {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+.ti-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.4), transparent);
+  margin: 1.5rem 0;
+}
+
+/* ─── Champs ──────────────────────────────────────────────────────────────── */
+.ti-field {
+  margin-bottom: 1.25rem;
+}
+
+.ti-label {
+  display: block;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+}
+
+.ti-input,
+.ti-textarea,
+.ti-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ti-textarea {
+  resize: vertical;
+  min-height: 95px;
+}
+
+.ti-select {
+  background: rgba(10, 25, 12, 0.9);
+  cursor: pointer;
+}
+
+.ti-input:focus,
+.ti-textarea:focus,
+.ti-select:focus {
+  border-color: rgba(34, 197, 94, 0.55);
+}
+
+.ti-input::placeholder,
+.ti-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Grille priorité ─────────────────────────────────────────────────────── */
+.ti-priority-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.ti-priority-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+  font-family: inherit;
+}
+
+.ti-priority-btn:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ti-priority-icon {
+  font-size: 1.1rem;
+}
+
+/* ─── Erreur ──────────────────────────────────────────────────────────────── */
+.ti-error {
+  color: #f87171;
+  font-size: 0.8rem;
+  margin: 0 0 1rem;
+}
+
+/* ─── Bouton submit ───────────────────────────────────────────────────────── */
+.ti-submit {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+  margin-top: 0.25rem;
+}
+
+.ti-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(34, 197, 94, 0.4);
+}
+
+.ti-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Écran succès ────────────────────────────────────────────────────────── */
+.ti-success {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.ti-success-icon {
+  font-size: 2.8rem;
+  color: #4ade80;
+  margin-bottom: 1rem;
+  animation: pop 0.4s ease;
+}
+
+.ti-success h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.ti-ticket-num {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 8px;
+  padding: 5px 16px;
+  color: #4ade80;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-family: monospace;
+}
+
+.ti-success p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  margin: 4px 0;
+}
+
+.ti-success strong { color: #4ade80; }
+
+.ti-success-sub { font-size: 0.8rem !important; margin-top: 6px !important; }
+
+.ti-reset-btn {
+  margin-top: 1.75rem;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.ti-reset-btn:hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+/* ─── Animation ───────────────────────────────────────────────────────────── */
+@keyframes pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .ti-card { padding: 1.75rem 1.25rem; }
+  .ti-back { margin-left: 0; align-self: flex-start; }
+  .ti-priority-grid { grid-template-columns: repeat(2, 1fr); }
 }
