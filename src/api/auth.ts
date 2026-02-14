@@ -6,6 +6,25 @@ const authApi = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
+authApi.interceptors.request.use((config) => {
+  const token = getAccessToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+authApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      clearTokens();
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
+
 export interface LoginResponse {
   access_token: string;
   refresh_token: string;
@@ -25,6 +44,19 @@ export interface RegisterPayload {
   firstName: string;
   phone: string;
   password: string;
+  role?: string;
+}
+
+export interface User {
+  _id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  role: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export async function login(email: string, password: string): Promise<LoginResponse> {
@@ -34,6 +66,11 @@ export async function login(email: string, password: string): Promise<LoginRespo
 
 export async function register(payload: RegisterPayload): Promise<LoginResponse> {
   const { data } = await authApi.post<LoginResponse>("/register", payload);
+  return data;
+}
+
+export async function getAllUsers(): Promise<User[]> {
+  const { data } = await authApi.get<User[]>("/users");
   return data;
 }
 
@@ -59,4 +96,8 @@ export function clearTokens() {
 
 export function getAccessToken(): string | null {
   return localStorage.getItem("access_token");
+}
+
+export function isAuthenticated(): boolean {
+  return !!getAccessToken();
 }

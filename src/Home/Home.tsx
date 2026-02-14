@@ -7,12 +7,13 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <Container fluid className="home-page vh-100 d-flex align-items-center justify-content-center">
+    <Container fluid className="home-page vh-100 d-flex flex-column align-items-center justify-content-center">
+      <div className="home-logo-wrapper mb-5">
+        <img src="/insigne.png" alt="Q-Manager Logo" className="home-logo" />
+        <h1 className="home-title">Q-Manager</h1>
+      </div>
+      
       <Row className="w-100 justify-content-center g-4">
-        <Col xs={12} className="text-center mb-4">
-          <h1 className="home-title">Q-Manager</h1>
-          <p className="home-subtitle">Choisissez votre interface</p>
-        </Col>
         <Col xs={12} md={4} className="d-flex justify-content-center">
           <Button
             variant="outline-primary"
@@ -42,6 +43,9 @@ function Home() {
           >
             Distributeur
           </Button>
+        </Col>
+        <Col xs={12} className="text-center mt-4">
+          <p className="home-subtitle">Choisissez votre interface</p>
         </Col>
       </Row>
     </Container>
