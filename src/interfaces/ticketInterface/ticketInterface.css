@@ -1,18 +1,205 @@
 .ticket-interface {
-  background: linear-gradient(180deg, #1b4332 0%, #2d6a4f 100%);
-  color: #d8f3dc;
+  background: linear-gradient(135deg, #4DB6AC 0%, #26A69A 100%);
+  color: #fff;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .ticket-interface .back-link {
-  color: #95d5b2;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .ticket-interface .back-link:hover {
   color: #fff;
+  transform: translateX(-5px);
 }
 
-.ticket-interface h1 {
-  font-size: 2rem;
+.ticket-card {
+  width: 90%;
+  max-width: 500px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.ticket-card .card-body {
+  padding: 2rem 2rem 2.5rem;
+}
+
+.ticket-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ticket-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #4DB6AC 0%, #26A69A 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.3);
+}
+
+.ticket-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 0.25rem;
+}
+
+.ticket-subtitle {
+  font-size: 0.875rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+.ticket-number-display {
+  background: linear-gradient(135deg, #4DB6AC 0%, #26A69A 100%);
+  padding: 1.25rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.2);
+}
+
+.ticket-number-label {
+  font-size: 0.75rem;
   font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ticket-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.form-label-custom {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.operation-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.operation-btn {
+  background: white;
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+.operation-btn:hover {
+  border-color: #4DB6AC;
+  background-color: #F0FDFA;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(77, 182, 172, 0.15);
+}
+
+.operation-btn.active {
+  border-color: #4DB6AC;
+  border-width: 3px;
+  background-color: white;
+  color: #4DB6AC;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.2);
+}
+
+.operation-icon {
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.operation-btn.active .operation-icon {
+  transform: scale(1.1);
+  color: #4DB6AC;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #4DB6AC 0%, #26A69A 100%);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(77, 182, 172, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(77, 182, 172, 0.4);
+  background: linear-gradient(135deg, #26A69A 0%, #00897B 100%);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .ticket-card {
+    width: 95%;
+  }
+
+  .ticket-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .ticket-number {
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .operation-buttons {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .operation-btn {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.875rem;
+  }
 }

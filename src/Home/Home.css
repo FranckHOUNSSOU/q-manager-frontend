@@ -1,13 +1,24 @@
 .home-page {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: rgb(138, 143, 148);
   color: #eee;
+}
+
+.home-logo-wrapper {
+  text-align: center;
+}
+
+.home-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 .home-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.5rem;
+  color: white;
+  margin: 0;
 }
 
 .home-subtitle {

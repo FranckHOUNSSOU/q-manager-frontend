@@ -96,8 +96,8 @@ function Login() {
           </Form>
         </Col>
 
-        <Col className="d-none d-md-flex flex-column justify-content-center align-items-center bg-primary text-white p-5 h-100">
-          <h2>Bienvenue Q-MANAGER</h2>
+        <Col className="d-none d-md-flex flex-column justify-content-center align-items-center text-white p-5 h-100" style={{ background: "#4A6FA5 "}}>
+          <h2>Bienvenue </h2>
           <p>Pour commencer, connectez-vous à votre compte</p>
         </Col>
       </Row>

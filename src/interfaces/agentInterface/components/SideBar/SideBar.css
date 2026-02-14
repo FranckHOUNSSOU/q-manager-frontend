@@ -4,7 +4,7 @@
   top: 0;
   bottom: 0;
   width: 260px;
-  background: #fff;
+  background: rgb(77, 182, 172);
   border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
@@ -93,12 +93,12 @@
 }
 
 .sidebar-link:hover {
-  background: #f3f4f6;
+  background: rgb(0, 229, 212);
   color: #111;
 }
 
 .sidebar-link.active {
-  background: #eff6ff;
+ background: rgb(0, 229, 212);
   color: #2563eb;
   font-weight: 500;
 }
@@ -128,7 +128,7 @@
   padding-left: 2.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.5rem;
-  background: #f9fafb;
+  background: rgb(77, 182, 172);
 }
 
 .sidebar-sublink {
@@ -145,12 +145,12 @@
 }
 
 .sidebar-sublink:hover {
-  background: #f3f4f6;
+  background: rgb(0, 229, 212);
   color: #111;
 }
 
 .sidebar-sublink.active {
-  background: #eff6ff;
+  background: rgb(0, 229, 212);
   color: #2563eb;
   font-weight: 500;
 }

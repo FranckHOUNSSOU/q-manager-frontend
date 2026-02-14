@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
-import { getUser } from "../../../../api/auth";
+import { getUser, clearTokens } from "../../../../api/auth";
 import "./NavBar.css";
 
 interface UserAvatarProps {
@@ -41,10 +42,20 @@ function UserAvatar({ firstName, lastName }: UserAvatarProps) {
 }
 
 function NavBar() {
-  //const [langOpen, setLangOpen] = useState(false);
+  const navigate = useNavigate();
   const [userOpen, setUserOpen] = useState(false);
   
   const user = getUser();
+
+  const handleProfileClick = () => {
+    setUserOpen(false);
+    navigate("/agentInterface/profil");
+  };
+
+  const handleLogout = () => {
+    clearTokens();
+    navigate("/login");
+  };
 
   return (
     <header className="agent-navbar">
@@ -89,8 +100,8 @@ function NavBar() {
           </button>
           {userOpen && (
             <div className="navbar-dropdown navbar-dropdown-right">
-              <button type="button">Profil</button>
-              <button type="button">Déconnexion</button>
+              <button type="button" onClick={handleProfileClick}>Profil</button>
+              <button type="button" onClick={handleLogout}>Déconnexion</button>
             </div>
           )}
         </div>

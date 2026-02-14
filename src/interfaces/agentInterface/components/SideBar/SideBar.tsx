@@ -11,7 +11,7 @@ import {
   FiUser,
   FiUsers,
 } from "react-icons/fi";
-import { clearTokens } from "../../../../api/auth";
+import { clearTokens, getUser } from "../../../../api/auth";
 import "./SideBar.css";
 
 function SideBar() {
@@ -19,6 +19,11 @@ function SideBar() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const user = getUser();
+  const isAdmin = user?.role === "admin";
+
+  console.log("User data:", user);
+  console.log("Is admin:", isAdmin);
 
   useEffect(() => {
     if (
@@ -98,15 +103,17 @@ function SideBar() {
                 <FiUser className="sidebar-icon" />
                 <span>Profil</span>
               </NavLink>
-              <NavLink
-                to="/agentInterface/staff"
-                className={({ isActive }) =>
-                  `sidebar-sublink ${isActive ? "active" : ""}`
-                }
-              >
-                <FiUsers className="sidebar-icon" />
-                <span>Staff</span>
-              </NavLink>
+              {isAdmin && (
+                <NavLink
+                  to="/agentInterface/staff"
+                  className={({ isActive }) =>
+                    `sidebar-sublink ${isActive ? "active" : ""}`
+                  }
+                >
+                  <FiUsers className="sidebar-icon" />
+                  <span>Staff</span>
+                </NavLink>
+              )}
             </div>
           )}
         </div>
